@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./style.css";
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import MapPage from "./pages/MapPage";
+import AdminPage from "./pages/AdminPage";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      {/* Navbar giống Flutter */}
+      <nav className="navbar">
+        <Link to="/">Trang chủ</Link>
+        <Link to="/map">Bản đồ</Link>
+        <Link to="/admin">Admin</Link>
+       
+      </nav>
+
+      {/* Nội dung trang */}
+      <div className="page-container">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/map" element={<MapPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
