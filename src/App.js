@@ -1,34 +1,32 @@
-import "./style.css";
-
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
-import MapPage from "./pages/MapPage";
-import AdminPage from "./pages/AdminPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// COMPONENTS
+import TopNav from "./components/TopNav";
+
+// PAGES
+import HomePage from "./pages/HomePage";     // nếu bạn có
+import MapPage from "./pages/MapPage";       // nếu bạn có
+import AdminPage from "./pages/AdminPage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
-    <Router>
-      {/* Navbar giống Flutter */}
-      <nav className="navbar">
-        <Link to="/">Trang chủ</Link>
-        <Link to="/map">Bản đồ</Link>
-        <Link to="/admin">Admin</Link>
-       
-      </nav>
+    <BrowserRouter>
+      {/* Navbar luôn hiển thị */}
+      <TopNav />
 
       {/* Nội dung trang */}
-      <div className="page-container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/map" element={<MapPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path="/login" element={<LoginPage />} />
-        </Routes>
-      </div>
-    </Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        {/* <Route path="*" element={<NotFoundPage />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

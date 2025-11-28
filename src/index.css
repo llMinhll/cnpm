@@ -11,4 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body {
+  background: #f5f7fb !important;  
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f7fb;
+}
 
